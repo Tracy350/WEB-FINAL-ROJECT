@@ -4,6 +4,7 @@ import 'package:hotel_vendor/components/login1.dart';
 import 'package:hotel_vendor/components/login_hotel_type.dart';
 import 'package:hotel_vendor/components/signup.dart';
 import 'package:hotel_vendor/providers/authstate_provider.dart';
+import 'package:hotel_vendor/screens/adminscreen.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -36,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
       // Navigate to HomeScreen
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const HotelType()),
+        MaterialPageRoute(builder: (context) => const AdminScreen()),
       );
     });
   }

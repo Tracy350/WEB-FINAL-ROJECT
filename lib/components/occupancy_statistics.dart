@@ -7,45 +7,49 @@ class OccupancyStatistics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Text(
-                'Occupancy Statistics',
-                style: GoogleFonts.montserrat(
-                    textStyle: TextStyle(fontWeight: FontWeight.w700)),
-              ),
-              Spacer(),
-              Container(
-                width: 100,
-                height: 30,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(7),
-                  border: Border.all(
-                    color: Colors.grey, // Adjust border color here
-                    width: 1, // Adjust border width here
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Text(
+                    'Occupancy Statistics',
+                    style: GoogleFonts.montserrat(
+                        textStyle: TextStyle(fontWeight: FontWeight.w700)),
                   ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.calendar_month),
-                    Text(
-                      'Monthly',
-                      style: GoogleFonts.montserrat(textStyle: TextStyle()),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
+                  Spacer(),
+                  Container(
+                    width: 100,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(7),
+                      border: Border.all(
+                        color: Colors.grey, // Adjust border color here
+                        width: 1, // Adjust border width here
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.calendar_month),
+                        Text(
+                          'Monthly',
+                          style: GoogleFonts.montserrat(textStyle: TextStyle()),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

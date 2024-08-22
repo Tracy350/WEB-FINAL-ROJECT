@@ -4,15 +4,23 @@ import 'package:hotel_vendor/theme/colors.dart';
 
 class TypeOptions extends StatefulWidget {
   final String text;
-  const TypeOptions({super.key, required this.text});
+  final int value;
+  final int groupValue;
+  final ValueChanged<int?> onChanged;
+
+  const TypeOptions({
+    super.key,
+    required this.text,
+    required this.value,
+    required this.groupValue,
+    required this.onChanged,
+  });
 
   @override
   State<TypeOptions> createState() => _TypeOptionsState();
 }
 
 class _TypeOptionsState extends State<TypeOptions> {
-  bool _isChecked = false;
-  bool _isPressed = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,7 +33,9 @@ class _TypeOptionsState extends State<TypeOptions> {
           border: Border.all(color: AppColors.bordercolor),
         ),
         child: MaterialButton(
-          onPressed: () {},
+          onPressed: () {
+            widget.onChanged(widget.value);
+          },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -35,13 +45,12 @@ class _TypeOptionsState extends State<TypeOptions> {
                   textStyle: const TextStyle(fontWeight: FontWeight.w500),
                 ),
               ),
-              Spacer(),
-              Checkbox(
-                value: _isChecked,
-                onChanged: (bool? value) {
-                  setState(() {
-                    _isChecked = value ?? false;
-                  });
+              const Spacer(),
+              Radio<int>(
+                value: widget.value,
+                groupValue: widget.groupValue,
+                onChanged: (int? value) {
+                  widget.onChanged(value);
                 },
                 activeColor: AppColors.green1,
               ),

@@ -1,9 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hotel_vendor/components/login1.dart';
 import 'package:hotel_vendor/providers/authstate_provider.dart';
+import 'package:hotel_vendor/screens/location_screen.dart';
 import 'package:hotel_vendor/theme/colors.dart';
+import 'package:hotel_vendor/utils/constants.dart';
 import 'package:hotel_vendor/widgets/button.dart';
 import 'package:hotel_vendor/widgets/checkbox.dart';
 import 'package:hotel_vendor/widgets/square_tile.dart';
@@ -30,16 +33,24 @@ class _Login1State extends State<SignUp> {
       setState(() {
         isLoading = true;
       });
-      final credential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      // Logger().d([emailAddress, password]);
+      final credential = await mAuth.createUserWithEmailAndPassword(
         email: emailAddress,
         password: password,
       );
+      Logger().d(credential);
       // Check if sign up is successful
       if (credential.user != null) {
-        EmailProvider emailProvider =
-            Provider.of<EmailProvider>(context, listen: false);
-        emailProvider.setEmail = emailAddress;
+        // EmailProvider emailProvider =
+        //     Provider.of<EmailProvider>(context, listen: false);
+        // emailProvider.setEmail = emailAddress;
+        await firestore.collection("admins").doc(credential.user?.uid).set({
+          "uid": credential.user?.uid,
+          "email": credential.user?.email,
+          "firstname": _fNameController.text.trim(),
+          "lastname": _lNameController.text.trim()
+        });
+
         setState(() {
           isLoading = false;
         });
@@ -55,6 +66,7 @@ class _Login1State extends State<SignUp> {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             content: Text('The account already exists for that email.')));
       }
+      Logger().d(e.message);
     } catch (e) {
       Logger().d(e);
     }
@@ -114,14 +126,14 @@ class _Login1State extends State<SignUp> {
               height: 35,
               hintText: 'First Name',
               controller: _fNameController,
-              obscureText: true,
+              obscureText: false,
             ),
             const SizedBox(height: 20.0),
             MyTextField(
               height: 35,
               hintText: 'Last Name',
               controller: _lNameController,
-              obscureText: true,
+              obscureText: false,
             ),
             const SizedBox(height: 20.0),
             MyTextField(
@@ -159,10 +171,32 @@ class _Login1State extends State<SignUp> {
             const SizedBox(height: 10.0),
             Center(
               child: MyButton(
-                  width: width,
-                  height: MediaQuery.of(context).size.height * 0.06,
-                  text: 'Sign Up',
-                  onPressed: () {}),
+                width: width,
+                height: MediaQuery.of(context).size.height * 0.06,
+                text: 'Sign Up',
+                onPressed: ()
+                    //              {
+                    //                Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => const LocationScreen()),
+                    // );
+                    //             }
+                    async {
+                  bool signUpSuccess = await signup(
+                    _emailController.text.trim(),
+                    _pwController.text.trim(),
+                    context,
+                  );
+                  if (signUpSuccess) {
+                    // Navigate to HotelSelectionScreen after successful sign-up
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LocationScreen()),
+                    );
+                  }
+                },
+              ),
             ),
             // Row(
             //   mainAxisAlignment: MainAxisAlignment.center,

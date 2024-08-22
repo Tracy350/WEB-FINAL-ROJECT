@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hotel_vendor/components/select_location.dart';
 import 'package:hotel_vendor/providers/authstate_provider.dart';
+import 'package:hotel_vendor/screens/adminscreen.dart';
+import 'package:hotel_vendor/screens/location_screen.dart';
 import 'package:hotel_vendor/theme/colors.dart';
 import 'package:hotel_vendor/widgets/button.dart';
 import 'package:hotel_vendor/widgets/checkbox.dart';
@@ -44,7 +46,7 @@ class _Login1State extends State<Login1> {
           isLoading = false;
         });
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => SelectLocation()));
+            context, MaterialPageRoute(builder: (context) => AdminScreen()));
       }
     } on FirebaseAuthException catch (e) {
       setState(() {
