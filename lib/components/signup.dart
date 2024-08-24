@@ -1,15 +1,14 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hotel_vendor/components/login1.dart';
+import 'package:hotel_vendor/login%20screens/login_form_screen.dart';
 import 'package:hotel_vendor/providers/authstate_provider.dart';
-import 'package:hotel_vendor/screens/location_screen.dart';
 import 'package:hotel_vendor/theme/colors.dart';
 import 'package:hotel_vendor/utils/constants.dart';
 import 'package:hotel_vendor/widgets/button.dart';
 import 'package:hotel_vendor/widgets/checkbox.dart';
-import 'package:hotel_vendor/widgets/square_tile.dart';
 import 'package:hotel_vendor/widgets/textfield.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
@@ -48,7 +47,10 @@ class _Login1State extends State<SignUp> {
           "uid": credential.user?.uid,
           "email": credential.user?.email,
           "firstname": _fNameController.text.trim(),
-          "lastname": _lNameController.text.trim()
+          "lastname": _lNameController.text.trim(),
+          "hotelname": "",
+          "hotelthumbnail": "",
+          "hotellocation": ""
         });
 
         setState(() {
@@ -192,7 +194,7 @@ class _Login1State extends State<SignUp> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const LocationScreen()),
+                          builder: (context) => const LoginFormScreen()),
                     );
                   }
                 },

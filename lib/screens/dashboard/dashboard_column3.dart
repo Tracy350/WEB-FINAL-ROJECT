@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hotel_vendor/screens/dashboard/mygraph.dart';
+import 'package:hotel_vendor/theme/colors.dart';
 import 'package:hotel_vendor/widgets/mypie_chart.dart';
 
 class DashboardColumn3 extends StatelessWidget {
@@ -163,12 +165,29 @@ class DashboardColumn3 extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text('Floor Status',
-                          style: GoogleFonts.montserrat(
-                              textStyle: const TextStyle(
-                                  fontWeight: FontWeight.w700))),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          makeTransactionsIcon(),
+                          const SizedBox(
+                            width: 38,
+                          ),
+                          const Text(
+                            'Transactions',
+                            style: TextStyle(color: Colors.black, fontSize: 22),
+                          ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          const Text(
+                            'state',
+                            style: TextStyle(
+                                color: Color(0xff77839a), fontSize: 16),
+                          ),
+                        ],
+                      ),
                     ),
-                    const MyPieChart()
+                    BarChartSample2()
                   ],
                 ),
               ),
@@ -176,6 +195,53 @@ class DashboardColumn3 extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget makeTransactionsIcon() {
+    const width = 4.5;
+    const space = 3.5;
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Container(
+          width: width,
+          height: 10,
+          color: AppColors.green1,
+        ),
+        const SizedBox(
+          width: space,
+        ),
+        Container(
+          width: width,
+          height: 28,
+          color: AppColors.green1,
+        ),
+        const SizedBox(
+          width: space,
+        ),
+        Container(
+          width: width,
+          height: 42,
+          color: AppColors.green1,
+        ),
+        const SizedBox(
+          width: space,
+        ),
+        Container(
+          width: width,
+          height: 28,
+          color: AppColors.green1,
+        ),
+        const SizedBox(
+          width: space,
+        ),
+        Container(
+          width: width,
+          height: 10,
+          color: AppColors.green1,
+        ),
+      ],
     );
   }
 }

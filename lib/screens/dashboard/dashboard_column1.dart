@@ -17,6 +17,7 @@ class DashboardColumn1 extends StatelessWidget {
           children: [
             Expanded(
                 child: Container(
+             
               height: MediaQuery.of(context).size.height * 0.1,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(

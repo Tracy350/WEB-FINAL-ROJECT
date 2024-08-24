@@ -14,6 +14,7 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 20),
         children: const [
           DashboardHeader(
             text: 'Dashboard',
@@ -27,7 +28,7 @@ class DashboardScreen extends StatelessWidget {
           ),
           DashboardColumn2(),
           DashboardColumn3(),
-          DashboardColumn4()
+          // DashboardColumn4()
         ],
       ),
     );

@@ -1,18 +1,14 @@
-import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hotel_vendor/components/login1.dart';
-import 'package:hotel_vendor/components/login_hotel_type.dart';
-import 'package:hotel_vendor/components/select_location.dart';
-import 'package:hotel_vendor/components/side_menu.dart';
+
 import 'package:hotel_vendor/firebase_options.dart';
+import 'package:hotel_vendor/login%20screens/login_form.dart';
+import 'package:hotel_vendor/login%20screens/login_form_screen.dart';
 import 'package:hotel_vendor/providers/authstate_provider.dart';
+
+import 'package:hotel_vendor/login%20screens/login_main.dart';
 import 'package:hotel_vendor/screens/adminscreen.dart';
-import 'package:hotel_vendor/screens/dashboard/dashboard_screen.dart';
-import 'package:hotel_vendor/screens/hotel_type_screen.dart';
-import 'package:hotel_vendor/screens/location_screen.dart';
-import 'package:hotel_vendor/screens/login_main.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -54,7 +50,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: HotelTypeScreen(),
+            home: LoginScreen(),
           );
         },
       ),

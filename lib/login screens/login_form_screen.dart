@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
-import 'package:hotel_vendor/components/login_hotel_type.dart';
-import 'package:hotel_vendor/widgets/hotel_type.dart';
+import 'package:hotel_vendor/login%20screens/login_form.dart';
+import 'package:hotel_vendor/components/occupancy_statistics.dart';
+import 'package:hotel_vendor/components/select_location.dart';
 
-class HotelSelectionScreen extends StatelessWidget {
-  const HotelSelectionScreen({super.key});
+class LoginFormScreen extends StatelessWidget {
+  const LoginFormScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +39,13 @@ class HotelSelectionScreen extends StatelessWidget {
                 ),
               ),
             ),
-            // HotelType on the right
+            // Select Location on the right
             Expanded(
-              flex: 2,
-              child: HotelType(),
+              flex: 3,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                child: LoginForm(),
+              ),
             ),
           ],
         ),

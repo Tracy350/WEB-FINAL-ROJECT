@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
-import 'package:hotel_vendor/components/login1.dart';
-import 'package:hotel_vendor/components/login_hotel_type.dart';
+import 'package:hotel_vendor/login%20screens/login1.dart';
 import 'package:hotel_vendor/components/signup.dart';
+import 'package:hotel_vendor/login%20screens/login_form_screen.dart';
 import 'package:hotel_vendor/providers/authstate_provider.dart';
 import 'package:hotel_vendor/screens/adminscreen.dart';
 import 'package:provider/provider.dart';
@@ -84,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ? (authStateProvider.isSignedUp
                         ? const SignUp()
                         : const Login1())
-                    : const HotelType(),
+                    : const LoginFormScreen(),
               ),
             ),
           ],
