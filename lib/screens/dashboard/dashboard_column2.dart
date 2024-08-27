@@ -37,19 +37,23 @@ class DashboardColumn2 extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    DashboardRoomOptions(),
+                    DashboardRoomOptions(
+                      text: 'Single saring',
+                    ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.008,
                     ),
-                    DashboardRoomOptions(),
+                    DashboardRoomOptions(
+                      text: 'Double sharing',
+                    ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.008,
                     ),
-                    DashboardRoomOptions(),
+                    DashboardRoomOptions(text: 'Family Sharing'),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.008,
                     ),
-                    DashboardRoomOptions(),
+                    DashboardRoomOptions(text: 'VIP Suite'),
                   ],
                 ),
               ],

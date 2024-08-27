@@ -4,7 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hotel_vendor/theme/colors.dart';
 
 class DashboardRoomOptions extends StatelessWidget {
-  const DashboardRoomOptions({super.key});
+  const DashboardRoomOptions({super.key, required this.text});
+
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class DashboardRoomOptions extends StatelessWidget {
       padding: const EdgeInsets.only(left: 8.0),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.13,
-        width: MediaQuery.of(context).size.width * 0.1,
+        width: MediaQuery.of(context).size.width * 0.15,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(
               10,
@@ -24,7 +26,7 @@ class DashboardRoomOptions extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Single sharing',
+                text,
                 style:
                     GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 12)),
               ),

@@ -50,6 +50,12 @@ class SideMenu extends StatelessWidget {
                 isSelected: index == 4,
                 press: () => selectedIndex.value = 4,
               ),
+              DrawerListTile(
+                title: 'Front Desk',
+                image: 'assets/icons/Reservation.png',
+                isSelected: index == 5,
+                press: () => selectedIndex.value = 5,
+              ),
             ],
           ),
         ),

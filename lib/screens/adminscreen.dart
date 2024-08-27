@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hotel_vendor/components/side_menu.dart';
+import 'package:hotel_vendor/screens/FrontDesk/fontdesk.dart';
 import 'package:hotel_vendor/screens/Guest/guest.dart';
 import 'package:hotel_vendor/screens/dashboard/dashboard_screen.dart';
 import 'package:hotel_vendor/screens/deal/deal.dart';
@@ -45,8 +46,10 @@ class AdminScreen extends StatelessWidget {
         return const Rooms();
       case 3:
         return const Deals();
-       case 4:
+      case 4:
         return const Rate();
+      case 5:
+        return FrontDesk();
       default:
         return DashboardScreen(); // or any default widget
     }

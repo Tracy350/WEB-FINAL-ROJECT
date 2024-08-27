@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hotel_vendor/theme/colors.dart';
 
-class DealsTable extends StatelessWidget {
-  const DealsTable({
+class FrontdeskTable extends StatelessWidget {
+  const FrontdeskTable({
     super.key,
     this.border,
     this.fixedColumnsColor,
@@ -25,12 +25,11 @@ class DealsTable extends StatelessWidget {
             BorderRadius.circular(8.0), // Optional: adds rounded corners
       ),
       child: PaginatedDataTable(
-    
         columnSpacing: 183,
         columns: [
           DataColumn2(
             label: Text(
-              'Reservation ID',
+              'Room number',
               style: GoogleFonts.montserrat(
                   textStyle: TextStyle(
                       fontWeight: FontWeight.w600, color: Colors.blueAccent)),
@@ -39,7 +38,7 @@ class DealsTable extends StatelessWidget {
           ),
           DataColumn2(
             label: Text(
-              'Name',
+              'Bed type',
               style: GoogleFonts.montserrat(
                   textStyle: TextStyle(
                       fontWeight: FontWeight.w600, color: Colors.blueAccent)),
@@ -48,7 +47,7 @@ class DealsTable extends StatelessWidget {
           ),
           DataColumn2(
             label: Text(
-              'Room Number',
+              'Room Floor',
               style: GoogleFonts.montserrat(
                   textStyle: TextStyle(
                       fontWeight: FontWeight.w600, color: Colors.blueAccent)),
@@ -57,7 +56,7 @@ class DealsTable extends StatelessWidget {
           ),
           DataColumn2(
             label: Text(
-              'Total amount',
+              'Room Facility',
               style: GoogleFonts.montserrat(
                   textStyle: TextStyle(
                       fontWeight: FontWeight.w600, color: Colors.blueAccent)),
@@ -66,7 +65,7 @@ class DealsTable extends StatelessWidget {
           ),
           DataColumn2(
             label: Text(
-              'Amount paid',
+              'Status',
               style: GoogleFonts.montserrat(
                   textStyle: TextStyle(
                       fontWeight: FontWeight.w600, color: Colors.blueAccent)),
@@ -90,11 +89,11 @@ class _DataSource extends DataTableSource {
     // Replace this with your actual data source.
     final List<Map<String, dynamic>> _data = List.generate(50, (index) {
       return {
-        "Reservation ID": index,
-        "Name": "Item $index",
+        "Room number": index,
+        "Bed type": "Item $index",
         "Room Number": index * 2,
-        'Total amount': "\$ $index*30",
-        "Amount paid": "\$ 200",
+        'Room Facility': "\$${index * 30}",
+        "Status": "Available",
       };
     });
 
@@ -106,25 +105,34 @@ class _DataSource extends DataTableSource {
     return DataRow.byIndex(
       index: index,
       cells: [
+        DataCell(
+          Text(
+            '${item["Room Number"]}',
+            style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 12)),
+          ),
+        ),
         DataCell(Text(
-          'hello',
+          '${item["Bed Type"]}',
           style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 12)),
         )),
         DataCell(Text(
-          '${item["name"]}',
+          '${item["Room Floor"]}',
           style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 12)),
         )),
         DataCell(Text(
-          '${item["quantity"]}',
+          '${item["Room Facility"]}',
           style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 12)),
         )),
-        DataCell(Text(
-          '${item["total_amount"]}',
-          style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 12)),
-        )),
-        DataCell(Text(
-          '${item["amount_paid"]}',
-          style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 12)),
+        DataCell(Container(
+          padding: EdgeInsets.all(8.0),
+          decoration: BoxDecoration(
+            color: Colors.greenAccent.withOpacity(0.2),
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          child: Text(
+            '${item["Status"]}',
+            style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 12)),
+          ),
         )),
       ],
     );
@@ -134,7 +142,7 @@ class _DataSource extends DataTableSource {
   bool get isRowCountApproximate => false;
 
   @override
-  int get rowCount => 50; // Replace 100 with the actual number of rows.
+  int get rowCount => 50; // Replace 50 with the actual number of rows.
 
   @override
   int get selectedRowCount => 0;

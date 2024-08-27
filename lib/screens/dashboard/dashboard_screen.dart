@@ -28,7 +28,7 @@ class DashboardScreen extends StatelessWidget {
           ),
           DashboardColumn2(),
           DashboardColumn3(),
-          // DashboardColumn4()
+          DashboardColumn4()
         ],
       ),
     );

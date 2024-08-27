@@ -150,7 +150,7 @@ class DashboardColumn3 extends StatelessWidget {
                 child: Container(),
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.28,
+                height: MediaQuery.of(context).size.height * 0.31,
                 width: MediaQuery.of(context).size.width / 2.52,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -164,30 +164,65 @@ class DashboardColumn3 extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          makeTransactionsIcon(),
-                          const SizedBox(
-                            width: 38,
-                          ),
-                          const Text(
-                            'Transactions',
-                            style: TextStyle(color: Colors.black, fontSize: 22),
-                          ),
-                          const SizedBox(
-                            width: 4,
-                          ),
-                          const Text(
-                            'state',
-                            style: TextStyle(
-                                color: Color(0xff77839a), fontSize: 16),
-                          ),
-                        ],
+                      padding: const EdgeInsets.only(left: 15.0, top: 10),
+                      child: Text(
+                        'Floor Status',
+                        style: GoogleFonts.montserrat(
+                            textStyle: TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 15)),
                       ),
                     ),
-                    BarChartSample2()
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          GuageIndicator(
+                            value: 100,
+                          ),
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    height: 20,
+                                    width: 20,
+                                    color: AppColors.green1,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    'Completed',
+                                    style: GoogleFonts.montserrat(
+                                        textStyle: TextStyle()),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                height: 20,
+                                width: 20,
+                                color: Color(0xFFD9DEEB),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                'Yet to complete',
+                                style: GoogleFonts.montserrat(
+                                    textStyle: TextStyle()),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -195,53 +230,6 @@ class DashboardColumn3 extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget makeTransactionsIcon() {
-    const width = 4.5;
-    const space = 3.5;
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Container(
-          width: width,
-          height: 10,
-          color: AppColors.green1,
-        ),
-        const SizedBox(
-          width: space,
-        ),
-        Container(
-          width: width,
-          height: 28,
-          color: AppColors.green1,
-        ),
-        const SizedBox(
-          width: space,
-        ),
-        Container(
-          width: width,
-          height: 42,
-          color: AppColors.green1,
-        ),
-        const SizedBox(
-          width: space,
-        ),
-        Container(
-          width: width,
-          height: 28,
-          color: AppColors.green1,
-        ),
-        const SizedBox(
-          width: space,
-        ),
-        Container(
-          width: width,
-          height: 10,
-          color: AppColors.green1,
-        ),
-      ],
     );
   }
 }

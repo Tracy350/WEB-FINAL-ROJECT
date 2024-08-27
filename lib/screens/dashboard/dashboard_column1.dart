@@ -17,7 +17,6 @@ class DashboardColumn1 extends StatelessWidget {
           children: [
             Expanded(
                 child: Container(
-             
               height: MediaQuery.of(context).size.height * 0.1,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
@@ -33,7 +32,7 @@ class DashboardColumn1 extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Text('Overview',
                         style: GoogleFonts.montserrat(
-                            textStyle: TextStyle(fontWeight: FontWeight.w700))),
+                            textStyle: TextStyle(fontWeight: FontWeight.w400))),
                   ),
                   SizedBox(
                     height: 5,
@@ -58,8 +57,7 @@ class DashboardColumn1 extends StatelessWidget {
                                   'Check-in',
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
-                                          color: AppColors.green1,
-                                          fontWeight: FontWeight.w700)),
+                                          fontWeight: FontWeight.w400)),
                                 ),
                                 SizedBox(
                                   width: 10,
@@ -68,6 +66,7 @@ class DashboardColumn1 extends StatelessWidget {
                                   '23',
                                   style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
+                                          color: AppColors.green1,
                                           fontSize: 20,
                                           fontWeight: FontWeight.w700)),
                                 )
@@ -92,21 +91,21 @@ class DashboardColumn1 extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                'Check-in',
+                                'Check-out',
+                                style: GoogleFonts.montserrat(
+                                    textStyle:
+                                        TextStyle(fontWeight: FontWeight.w400)),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                '23',
                                 style: GoogleFonts.montserrat(
                                     textStyle: TextStyle(
+                                        fontSize: 20,
                                         color: AppColors.green1,
                                         fontWeight: FontWeight.w700)),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                '23',
-                                style: GoogleFonts.montserrat(
-                                    textStyle: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w700)),
                               )
                             ],
                           )
@@ -120,7 +119,7 @@ class DashboardColumn1 extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Today\'s',
+                            'Total',
                             style: GoogleFonts.montserrat(
                                 textStyle: TextStyle(
                                     fontSize: 15, color: Colors.grey)),
@@ -128,11 +127,46 @@ class DashboardColumn1 extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                'Check-in',
+                                'In hotel',
+                                style: GoogleFonts.montserrat(
+                                    textStyle:
+                                        TextStyle(fontWeight: FontWeight.w400)),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                '23',
                                 style: GoogleFonts.montserrat(
                                     textStyle: TextStyle(
+                                        fontSize: 20,
                                         color: AppColors.green1,
                                         fontWeight: FontWeight.w700)),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Total',
+                            style: GoogleFonts.montserrat(
+                                textStyle: TextStyle(
+                                    fontSize: 15, color: Colors.grey)),
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                'Available Room',
+                                style: GoogleFonts.montserrat(
+                                    textStyle:
+                                        TextStyle(fontWeight: FontWeight.w400)),
                               ),
                               SizedBox(
                                 width: 10,
@@ -142,6 +176,7 @@ class DashboardColumn1 extends StatelessWidget {
                                 style: GoogleFonts.montserrat(
                                     textStyle: TextStyle(
                                         fontSize: 20,
+                                        color: AppColors.green1,
                                         fontWeight: FontWeight.w700)),
                               )
                             ],
@@ -156,7 +191,7 @@ class DashboardColumn1 extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Today\'s',
+                            'Total',
                             style: GoogleFonts.montserrat(
                                 textStyle: TextStyle(
                                     fontSize: 15, color: Colors.grey)),
@@ -164,11 +199,10 @@ class DashboardColumn1 extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                'Check-in',
+                                'Occupied rooms',
                                 style: GoogleFonts.montserrat(
-                                    textStyle: TextStyle(
-                                        color: Colors.blueAccent,
-                                        fontWeight: FontWeight.w700)),
+                                    textStyle:
+                                        TextStyle(fontWeight: FontWeight.w400)),
                               ),
                               SizedBox(
                                 width: 10,
@@ -178,42 +212,7 @@ class DashboardColumn1 extends StatelessWidget {
                                 style: GoogleFonts.montserrat(
                                     textStyle: TextStyle(
                                         fontSize: 20,
-                                        fontWeight: FontWeight.w700)),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Today\'s',
-                            style: GoogleFonts.montserrat(
-                                textStyle: TextStyle(
-                                    fontSize: 15, color: Colors.grey)),
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                'Check-in',
-                                style: GoogleFonts.montserrat(
-                                    textStyle: TextStyle(
-                                        color: Colors.blueAccent,
-                                        fontWeight: FontWeight.w700)),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                '23',
-                                style: GoogleFonts.montserrat(
-                                    textStyle: TextStyle(
-                                        fontSize: 20,
+                                        color: AppColors.green1,
                                         fontWeight: FontWeight.w700)),
                               )
                             ],
